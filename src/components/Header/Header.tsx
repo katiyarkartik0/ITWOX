@@ -1,8 +1,9 @@
 import Button from "components/Button/Button";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Header: React.FC = () => {
   return (
+    <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="#">
         Navbar
@@ -16,6 +17,8 @@ const Header: React.FC = () => {
           </Link>
       </div>
     </nav>
+    <Outlet/>
+    </>
   );
 };
 
