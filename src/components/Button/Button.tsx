@@ -23,9 +23,7 @@ const Button: React.FC<ButtonProps> = ({
   const classes =
     "app-button-component" +
     " " +
-    className +
-    " " +
-    (disabled === true ? "isDisabled" : "");
+    className
   return (
     <button
       type={type}
@@ -34,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       style={style}
     >
-      {isLoading ? <Loader /> : text}
+      {isLoading ? <Loader/> : text}
     </button>
   );
 };

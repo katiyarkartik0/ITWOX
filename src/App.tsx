@@ -4,6 +4,7 @@ import UnauthorizedPage from "pages/unauthorizedPage/UnauthorizedPage";
 import AuthenticationPage from "pages/auth/authenticationPage";
 import HomePage from "pages/homepage/HomePage";
 import Header from "components/Header/Header";
+import Dashboard from "pages/dashboard/Dashboard";
 
 import "./App.css";
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/sign-in" element={<AuthenticationPage />}></Route>
           <Route path="/" element={<Header />}>
             {homePageRoutes}
+            <Route path="dashboard" element={<Dashboard />} />
             <Route
               path="*"
               element={

@@ -27,7 +27,7 @@ const Header: React.FC = () => {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-dark">
         <a className="navbar-brand" href="#">
           Navbar
         </a>
