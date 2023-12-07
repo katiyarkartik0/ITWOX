@@ -17,7 +17,7 @@ function Toast() {
       setTimeout(() => {
         setShowToast(false);
         dispatch(setToast({status:null,displayMessage:null}))
-      }, 3000);
+      }, 1000);
     }
   }, [toastStatus, toastMessage]);
 

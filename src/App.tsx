@@ -2,19 +2,22 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import UnauthorizedPage from "pages/unauthorizedPage/UnauthorizedPage";
 import AuthenticationPage from "pages/auth/authenticationPage";
-
-import "./App.css";
 import HomePage from "pages/homepage/HomePage";
 import Header from "components/Header/Header";
 
+import "./App.css";
+
 function App() {
+  const homePageRoutes = ["", "home"].map((path) => (
+    <Route path={path} element={<HomePage />}></Route>
+  ));
   return (
     <div className="app-container">
       <BrowserRouter>
         <Routes>
           <Route path="/sign-in" element={<AuthenticationPage />}></Route>
           <Route path="/" element={<Header />}>
-            <Route path="home" element={<HomePage />}></Route>
+            {homePageRoutes}
             <Route
               path="*"
               element={

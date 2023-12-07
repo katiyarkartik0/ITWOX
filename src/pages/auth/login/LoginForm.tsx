@@ -61,24 +61,15 @@ const LoginForm: React.FC = () => {
     }
 
     setIsLoading(true);
-
-    // Uncomment the following block and replace it with your actual API call
-    // try {
-    //   const res = await userLogin(userCredentials);
-    //   if (res.ok) {
-    //     const { userData, accessToken, msg } = await res.json();
-        dispatch(setLogin({ userCredentials }));
-    //     localStorage.setItem("accessToken", JSON.stringify(accessToken));
-        localStorage.setItem("userData", JSON.stringify(userCredentials));
-        navigate("/home");
-    //   } else {
-    //     const { msg } = await res.json();
-    //     dispatch(setToast({ status: "failure", displayMessage: msg }));
-    //   }
-    // } catch (error) {
-    //   dispatch(setToast({ status: "failure", displayMessage: JSON.stringify(error) }));
-    // }
-
+    dispatch(setLogin({ userCredentials }));
+    dispatch(
+      setToast({
+        status: "success",
+        displayMessage: "Welcome! to your account",
+      })
+    );
+    localStorage.setItem("userData", JSON.stringify(userCredentials));
+    navigate("/home");
     setErrors(defaultError);
     setIsLoading(false);
   };
