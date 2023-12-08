@@ -1,9 +1,9 @@
 export const getPosts = async () =>
-  await fetch("https://jsonplaceholder.typicode.com/posts", {
+  await fetch(`${process.env.REACT_APP_ENDPOINT}/posts`, {
     method: "GET",
   });
 
 export const getComments = async ({ postId }) =>
-  await fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`, {
+  await fetch(`${process.env.REACT_APP_ENDPOINT}/comments?postId=${postId}`, {
     method: "GET",
   });
