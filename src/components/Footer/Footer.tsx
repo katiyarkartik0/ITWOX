@@ -5,6 +5,7 @@ import {
   FaInstagram,
   FaTwitter,
   FaGithub,
+  FaReact,
 } from "react-icons/fa";
 import "./Footer.css";
 
@@ -14,7 +15,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="made-with">
-          Made with <img  src={mernLogo} loading="lazy" className='mern_logo' alt="MERN"/> by Kartik Katiyar
+          Made with <FaReact className="icon" /> by Kartik Katiyar
         </div>
         <br></br>
         <div className="social-icons">

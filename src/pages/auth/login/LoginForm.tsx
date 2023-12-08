@@ -69,7 +69,7 @@ const LoginForm: React.FC = () => {
       })
     );
     localStorage.setItem("userData", JSON.stringify(userCredentials));
-    navigate("/home");
+    navigate("/dashboard");
     setErrors(defaultError);
     setIsLoading(false);
   };

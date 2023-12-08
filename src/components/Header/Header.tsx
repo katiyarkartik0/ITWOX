@@ -27,7 +27,10 @@ const Header: React.FC = () => {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+      <nav
+        className="navbar navbar-expand-lg navbar-light bg-dark"
+        data-testid="navigation-component"
+      >
         <a className="navbar-brand" href="#">
           Navbar
         </a>
@@ -39,7 +42,6 @@ const Header: React.FC = () => {
           )}
           {isSignedIn && (
             <>
-              
               <Link to="/dashboard">
                 <Button text="Dashboard" type="button" />
               </Link>
@@ -48,7 +50,6 @@ const Header: React.FC = () => {
                 type="button"
                 onClickEvent={handleLogout}
               />
-              
             </>
           )}
         </div>
