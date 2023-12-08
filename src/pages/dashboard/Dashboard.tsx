@@ -1,12 +1,17 @@
 import { ReactNode, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { getPosts } from "api/Posts";
 
 import Card from "components/Card/Card";
 import Pagination from "components/Pagination/Pagination";
+import UnauthorizedPage from "pages/unauthorizedPage/UnauthorizedPage";
+
+import { selectUserData } from "helpers/selector";
 
 import "./Dashboard.css";
+import { Loader } from "utils/Loader/Loader";
 
 const resultsPerPage = 10;
 
@@ -15,6 +20,13 @@ const Dashboard: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = parseInt(searchParams.get("currentPage") || "1");
   const [visiblePosts, setVisiblePosts] = useState<ReactNode>([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const { email } =
+    useSelector(selectUserData) ||
+    JSON.parse(localStorage.getItem("userData") || "{}");
+
+  const isSignedIn = !!email;
 
   //validating page numbers
   if (currentPage < 1) {
@@ -28,8 +40,10 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
+      setIsLoading(true);
       const response = await getPosts();
       const data = await response.json();
+      setIsLoading(false);
       setPosts(data);
     };
 
@@ -68,15 +82,27 @@ const Dashboard: React.FC = () => {
   const isPreviousButtonDisabled = currentPage < 2;
   const isNextButtonDisabled = currentPage > 9;
 
+  if (!isSignedIn) {
+    return (
+      <UnauthorizedPage path="/" displayMessage="Please sign in to continue!" />
+    );
+  }
+
   return (
     <>
-      <div className="postsContainer">{visiblePosts}</div>
-      <Pagination
-        isPreviousButtonDisabled={isPreviousButtonDisabled}
-        isNextButtonDisabled={isNextButtonDisabled}
-        onNextClick={onNextClick}
-        onPreviousClick={onPreviousClick}
-      />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <div className="postsContainer">{visiblePosts}</div>
+          <Pagination
+            isPreviousButtonDisabled={isPreviousButtonDisabled}
+            isNextButtonDisabled={isNextButtonDisabled}
+            onNextClick={onNextClick}
+            onPreviousClick={onPreviousClick}
+          />
+        </>
+      )}
     </>
   );
 };
