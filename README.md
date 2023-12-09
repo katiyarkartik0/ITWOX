@@ -29,18 +29,64 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Project Name
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Description of your React TypeScript Project.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Table of Contents
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [Screens](#screens)
+  - [Home](#home)
+  - [Dashboard](#dashboard)
+  - [Sign In](#sign-in)
+- [State Management](#state-management)
+- [Unit Testing](#unit-testing)
+- [Environment Variables](#environment-variables)
+- [APIs](#apis)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Screens
 
-## Learn More
+### Home
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Default landing page.
+- Top navigation bar.
+- When user is not signed in:
+  - User have a "Sign In" link in the navigation bar, which links to `/sign-in`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Dashboard
+
+- Top navigation bar.
+- Accessible only if the user is signed in.
+- Title: "Dashboard".
+- Fetch a list of posts & comments from:
+  - Posts API: [https://jsonplaceholder.typicode.com/posts](https://jsonplaceholder.typicode.com/posts)
+  - Comments API: [https://jsonplaceholder.typicode.com/comments](https://jsonplaceholder.typicode.com/comments)
+- Display the list of posts cards with a count of comments.
+- Paginate the list of posts to show 10 records with an ability to move to the next/previous page.
+
+### Sign In
+
+- No top navigation bar.
+- The user can enter a username & password (both required fields, username should be an email address).
+- Validate input.
+- When the user clicks "Submit," it login & redirect to "/dashboard" if everything is successful.
+
+## State Management
+
+- Redux is used to manage the state of the user login.
+- Post sign-in, if the screen is refreshed, the user login state remains.
+
+## Unit Testing
+
+- Unit tests using Jest and React Testing Library for UI components.
+- Integrated test script into the `package.json` so that it can be triggered from `npm test` command.
+
+## Environment Variables
+
+- Ensured the API URLs are stored in proper environment files as required.
+
+## APIs
+
+- Posts API: [https://jsonplaceholder.typicode.com/posts](https://jsonplaceholder.typicode.com/posts)
+- Comments API: [https://jsonplaceholder.typicode.com/comments](https://jsonplaceholder.typicode.com/comments)
+
