@@ -84,12 +84,13 @@ const Dashboard: React.FC = () => {
 
   if (!isSignedIn) {
     return (
-      <UnauthorizedPage path="/" displayMessage="Please sign in to continue!" />
+      <UnauthorizedPage path="/" displayMessage="Please sign in to continue to dashboard!" />
     );
   }
 
   return (
-    <>
+    <div className="dashboardPage">
+    <h1 data-testid="dashboard-title">Dashboard</h1>
       {isLoading ? (
         <Loader />
       ) : (
@@ -98,12 +99,13 @@ const Dashboard: React.FC = () => {
           <Pagination
             isPreviousButtonDisabled={isPreviousButtonDisabled}
             isNextButtonDisabled={isNextButtonDisabled}
+            currentPage={currentPage}
             onNextClick={onNextClick}
             onPreviousClick={onPreviousClick}
           />
         </>
       )}
-    </>
+    </div>
   );
 };
 

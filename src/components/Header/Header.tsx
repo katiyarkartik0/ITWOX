@@ -5,6 +5,8 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import { setLogout } from "store/slices/auth";
 import { setToast } from "store/slices/toast";
 
+import "./Header.css"
+
 const Header: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -28,10 +30,10 @@ const Header: React.FC = () => {
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg navbar-light bg-dark"
+        className="navbar navbar-expand-lg navbar-light bg-dark navigationBar"
         data-testid="navigation-component"
       >
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand navbar-light" href="#">
           Navbar
         </a>
         <div>

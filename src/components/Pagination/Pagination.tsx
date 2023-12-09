@@ -5,6 +5,7 @@ import "./Pagination.css";
 interface PaginationProps {
   onPreviousClick: () => void;
   onNextClick: () => void;
+  currentPage:number,
   isPreviousButtonDisabled: boolean;
   isNextButtonDisabled: boolean;
 }
@@ -12,6 +13,7 @@ interface PaginationProps {
 const Pagination = ({
   onPreviousClick,
   onNextClick,
+  currentPage,
   isPreviousButtonDisabled,
   isNextButtonDisabled,
 }: PaginationProps) => {
@@ -23,6 +25,7 @@ const Pagination = ({
         type="button"
         disabled={isPreviousButtonDisabled}
       />
+      <span className="currentPageNumber">{currentPage}</span>
       <Button
         text="Next"
         onClickEvent={onNextClick}

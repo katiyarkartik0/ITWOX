@@ -24,7 +24,7 @@ const UnauthorizedPage:React.FC<UnauthorizedPageProps> = ({ path = "/", displayM
   const navigate = useNavigate();
   return (
     <div className="unauthorized-page">
-      <h1 className="display-status">Unauthorized Access</h1>
+      <h1 className="display-status">Page NOT found!</h1>
       <p className="prompt-text">{displayMessage}</p>
       <Button
         text={"Go Back"}

@@ -25,9 +25,6 @@ function App() {
               element={
                 <UnauthorizedPage
                   path={"/"}
-                  displayMessage={
-                    "You are not authorized to access this page. Please log in to continue."
-                  }
                 />
               }
             />
